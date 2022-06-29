@@ -1,19 +1,16 @@
 import axios from "axios";
 
-export const getPlayer = () => {
+export const getPlayer = async (tag: string) => {
   try {
-
-    axios({
+    const res = await axios({
       method: "get",
-      url: "/players/%23QUYCVC2",
+      url: `/players/%23${tag}`,
       headers: {
         "Authorization": `Bearer ${process.env.REACT_APP_JWT_TOKEN}`,
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => {
-        console.log(res);
-      });
+    });
+    return res?.data;
   } catch(error){
     console.error(error);
   }

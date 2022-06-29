@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { Header } from "./Header";
+import { ResultWrapper } from "./ResultWrapper";
+import { SearchForm } from "./SearchForm";
 import { getPlayer } from "./server";
 
 function App() {
-  const testServer = () => {
-    getPlayer();
+  const [player, setPlayer] = useState(undefined);
+  const handleSubmit = async (tag: string) => {
+    const playerInfos = await getPlayer(tag);
+    setPlayer(playerInfos);
   };
 
   return (
     <div>
-      <button onClick={testServer}></button>
+      <Header></Header>
+      <SearchForm findPlayer={handleSubmit}></SearchForm>
+      <ResultWrapper player={player}></ResultWrapper>
     </div>
   );
 }
