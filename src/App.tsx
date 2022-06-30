@@ -12,7 +12,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col font-mono bg-slate-300 h-screen">
       <Header></Header>
       <SearchForm findPlayer={handleSubmit}></SearchForm>
       <ResultWrapper player={player}></ResultWrapper>

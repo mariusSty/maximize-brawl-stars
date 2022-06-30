@@ -17,11 +17,9 @@ export const SearchForm: React.FC<SearchFormProps> = ({ findPlayer }) => {
   };
 
   return (
-    <div>
-      <form>
-        <input type="text" name="tag" onChange={onChange}></input>
-        <button onClick={handleSubmit}>Valider</button>
-      </form>
+    <div className="flex justify-center py-10">
+      <input placeholder= "Tag ?" className="h-10 px-3 text-lg placeholder-gray-600 border rounded-lg" type="text" name="tag" onChange={onChange}></input>
+      <button className="h-10 px-6 mx-3 text-lg text-gray-100 transition-colors duration-150 bg-slate-800 rounded-lg hover:bg-slate-700" onClick={handleSubmit}>Valider</button>
     </div>
   );
 };
