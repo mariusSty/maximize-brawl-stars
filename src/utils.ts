@@ -17,3 +17,5 @@ export const compareBrawler = (allBrawlers: Array<Brawlers>, brawlersHad: Array<
   };
   return resultInfos;
 };
+
+export const calculatePercentage = (value: number, total: number) => Math.round(value/total*100);
