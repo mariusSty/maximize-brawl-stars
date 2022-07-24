@@ -1,40 +1,41 @@
 import React, { useState } from "react";
 import { Header } from "./Header";
-import { ResultInfos } from "./models";
+import { Player, PlayerStats } from "./models";
 import { ResultWrapper } from "./ResultWrapper";
 import { SearchForm } from "./SearchForm";
 import { getAllBrawlers, getPlayer } from "./server";
 import { Spinner } from "./Spinner";
-import { compareBrawler } from "./utils";
+import { getPlayerStats as getPlayerStats } from "./utils";
 
 function App() {
-  const [player, setPlayer] = useState(undefined);
-  const [resultInfos, setResultInfos] = useState<ResultInfos | undefined>(undefined);
+  const [playerStats, setPlayerStats] = useState<PlayerStats | undefined>(undefined);
+  const [player, setPlayer] = useState<Player | undefined>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorTagInput, setErrorTagInput] = useState<string | undefined>(undefined);
 
   const handleSubmit = async (tag: string) => {
-    setResultInfos(undefined);
+    setPlayerStats(undefined);
+    setPlayer(undefined);
     setIsLoading(true);
-    const playerInfos = await getPlayer(tag);
+    const playerData = await getPlayer(tag);
     const allBrawlers = await getAllBrawlers();
-    const resultCompare = compareBrawler(allBrawlers.items, playerInfos.brawlers);
-    setPlayer(playerInfos);
-    setResultInfos(resultCompare);
+    const playerStatsCalculated = getPlayerStats(allBrawlers.items, playerData.brawlers);
+    setPlayerStats(playerStatsCalculated);
+    setPlayer(playerData);
     setIsLoading(false);
   };
 
   return (
     <div className="flex flex-col font-mono bg-slate-300 h-screen">
-      <Header></Header>
-      <SearchForm findPlayer={handleSubmit} error={errorTagInput} setError={setErrorTagInput} setIsLoading={setIsLoading}></SearchForm>
+      <Header />
+      <SearchForm findPlayer={handleSubmit} error={errorTagInput} setError={setErrorTagInput} setIsLoading={setIsLoading} />
       {
         isLoading &&
         <Spinner />
       }
       {
-        player && resultInfos && !isLoading &&
-          <ResultWrapper player={player} resultInfos={resultInfos}></ResultWrapper>
+        player && playerStats && !isLoading &&
+          <ResultWrapper player={player} playerStats={playerStats} />
       }
     </div>
   );
