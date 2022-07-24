@@ -3,9 +3,10 @@ import { Header } from "./Header";
 import { Player, PlayerStats } from "./models";
 import { ResultWrapper } from "./ResultWrapper";
 import { SearchForm } from "./SearchForm";
-import { getAllBrawlers, getPlayer } from "./server";
+import { getPlayer } from "./server";
 import { Spinner } from "./Spinner";
 import { getPlayerStats as getPlayerStats } from "./utils";
+import allBrawlers from "./brawlers";
 
 function App() {
   const [playerStats, setPlayerStats] = useState<PlayerStats | undefined>(undefined);
@@ -18,8 +19,7 @@ function App() {
     setPlayer(undefined);
     setIsLoading(true);
     const playerData = await getPlayer(tag);
-    const allBrawlers = await getAllBrawlers();
-    const playerStatsCalculated = getPlayerStats(allBrawlers.items, playerData.brawlers);
+    const playerStatsCalculated = getPlayerStats(allBrawlers, playerData.brawlers);
     setPlayerStats(playerStatsCalculated);
     setPlayer(playerData);
     setIsLoading(false);

@@ -3,6 +3,7 @@ import { PlayerStats, Player } from "./models";
 import brawlerImg from "./images/brawler.png";
 import gadgetImg from "./images/gadget.webp";
 import starPowerImg from "./images/starPower.webp";
+import trophyImg from "./images/trophy.webp";
 import {calculatePercentage} from "./utils";
 import { BrawlersByLevelTable } from "./BrawlersByLevelTable";
 
@@ -15,7 +16,11 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
   return(
     <div className="px-32">
       {player && 
-          <div className="text-2xl mb-6">{player.name} ({player.trophies}): </div>
+      <div className="flex items-center mb-6 text-2xl">
+        <span>{player.name} ({player.trophies.toLocaleString()}</span>
+        <img className="h-6 w-6" src={trophyImg} alt="Trophy" />
+        <span>) :</span>
+      </div>
       }
       {
         playerStats &&
@@ -38,7 +43,7 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
               <BrawlersByLevelTable totalBrawlersByLevel={playerStats.totalBrawlersByLevel}/>
               <tr>
                 <td>
-                  <img className="h-5 w-5" src={gadgetImg} alt="Accessory" />
+                  <img className="h-5 w-5" src={gadgetImg} alt="Gadget" />
                 </td>
                 <td>
                   <span className="px-4">Gadgets :</span>
