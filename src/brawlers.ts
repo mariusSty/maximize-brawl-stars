@@ -1033,7 +1033,7 @@ export const allBrawlers = [
   },
   {
     "id": 16000044,
-    "name": "COLONEL\nRUFFS",
+    "name": "RUFFS",
     "starPowers": [
       {
         "id": 23000345,
@@ -1169,6 +1169,10 @@ export const allBrawlers = [
         "id": 23000392,
         "name": "RESERVE BUOY"
       },
+      {
+        "id": 23000490,
+        "name": "X-RAY-SHADES"
+      }
     ]
   },
   {
@@ -1188,6 +1192,10 @@ export const allBrawlers = [
       {
         "id": 23000399,
         "name": "PIGGY BANK"
+      },
+      {
+        "id": 23000487,
+        "name": "COIN SHOWER"
       }
     ]
   },
@@ -1366,12 +1374,84 @@ export const allBrawlers = [
       {
         "id": 23000495,
         "name": "STENCIL GLUE"
+      },
+      {
+        "id": 23000496,
+        "name": "INK REFILLS"
       }
     ],
     "gadgets": [
       {
         "id": 23000497,
         "name": "DORMANT STAR"
+      },
+      {
+        "id": 23000498,
+        "name": "PHAT SPLATTER"
+      }
+    ]
+  },
+  {
+    "id": 16000060,
+    "name": "SAM",
+    "starPowers": [
+      {
+        "id": 23000503,
+        "name": "HEARTY RECOVERY"
+      },
+      {
+        "id": 23000504,
+        "name": "REMOTE RECHARGE"
+      }
+    ],
+    "gadgets": [
+      {
+        "id": 23000505,
+        "name": "MAGNETIC FIELD"
+      },
+      {
+        "id": 23000506,
+        "name": "PULSE REPELLENT"
+      }
+    ]
+  },
+  {
+    "id": 16000061,
+    "name": "GUS",
+    "starPowers": [
+      {
+        "id": 23000511,
+        "name": "HEALTH BONANZA"
+      },
+      {
+        "id": 23000512,
+        "name": "SPIRIT ANIMAL"
+      }
+    ],
+    "gadgets": [
+      {
+        "id": 23000513,
+        "name": "KOOKY POPPER"
+      },
+      {
+        "id": 23000514,
+        "name": "SOUL SWITCHER"
+      }
+    ]
+  },
+  {
+    "id": 16000062,
+    "name": "BUSTER",
+    "starPowers": [
+      {
+        "id": 23000519,
+        "name": "BLOCKBUSTER"
+      }
+    ],
+    "gadgets": [
+      {
+        "id": 23000521,
+        "name": "UTILITY BELT"
       }
     ]
   }

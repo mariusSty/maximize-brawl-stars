@@ -36,6 +36,7 @@ export enum BrawlerPowerLevels {
 export interface BrawlersByLevel {
   level: BrawlerPowerLevels
   value: number
+  coinsNeed: number
 }
 
 export interface Player {
@@ -53,3 +54,7 @@ export interface PlayerStats {
   totalStarPowers: number,
   totalBrawlersByLevel: Array<BrawlersByLevel>
 }
+
+export const brawlerCoinsNeedByLevel =  [
+  0, 20, 35, 75, 140, 290, 480, 800, 1250, 1875, 2800
+];

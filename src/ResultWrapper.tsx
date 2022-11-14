@@ -17,7 +17,7 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
     <div className="px-32">
       {player && 
       <div className="flex items-center mb-6 text-2xl">
-        <span>{player.name} ({player.trophies.toLocaleString()}</span>
+        <span className="mr-1">{player.name} ({player.trophies.toLocaleString()}</span>
         <img className="h-6 w-6" src={trophyImg} alt="Trophy" />
         <span>) :</span>
       </div>
@@ -26,7 +26,7 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
         playerStats &&
           <table>
             <tbody>
-              <tr>
+              <tr className="text-xl">
                 <td>
                   <img className="h-5 w-5" src={brawlerImg} alt="Brawler" />
                 </td>
@@ -37,25 +37,25 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
                   <span className="px-4 font-bold">{calculatePercentage(playerStats.playerBrawlers, playerStats.totalBrawlers)}%</span>
                 </td>
                 <td>
-                  <span>{playerStats.playerBrawlers} / {playerStats.totalBrawlers}</span>
+                  <span>{playerStats.playerBrawlers}/{playerStats.totalBrawlers}</span>
                 </td>
               </tr>
               <BrawlersByLevelTable totalBrawlersByLevel={playerStats.totalBrawlersByLevel}/>
-              <tr>
-                <td>
+              <tr className="text-xl">
+                <td className="pb-4">
                   <img className="h-5 w-5" src={gadgetImg} alt="Gadget" />
                 </td>
-                <td>
+                <td className="pb-4">
                   <span className="px-4">Gadgets :</span>
                 </td>
-                <td>
+                <td className="pb-4">
                   <span className="px-4 font-bold">{calculatePercentage(playerStats.playerGadgets, playerStats.totalGadgets)}%</span>
                 </td>
-                <td>
-                  <span>{playerStats.playerGadgets} / {playerStats.totalGadgets}</span>
+                <td className="pb-4">
+                  <span>{playerStats.playerGadgets}/{playerStats.totalGadgets}</span>
                 </td>
               </tr>
-              <tr>
+              <tr className="text-xl">
                 <td>
                   <img className="h-5 w-5" src={starPowerImg} alt="Star Power" />
                 </td>
@@ -66,7 +66,7 @@ export const ResultWrapper: React.FC<ResultWrapperProps> = ({ player, playerStat
                   <span className="px-4 font-bold">{calculatePercentage(playerStats.playerStarPowers, playerStats.totalStarPowers)}%</span>
                 </td>
                 <td>
-                  <span>{playerStats.playerStarPowers} / {playerStats.totalStarPowers}</span>
+                  <span>{playerStats.playerStarPowers}/{playerStats.totalStarPowers}</span>
                 </td>
               </tr>
             </tbody>
